@@ -10,7 +10,7 @@ public class Controll_Video2 : MonoBehaviour {
 
     public Text textControll;
 
-  
+    public GameObject partciler;
 
     public Slider slider;
     public float sceond;
@@ -62,12 +62,24 @@ public class Controll_Video2 : MonoBehaviour {
 
         }
 
+       
 
 
 
 
 
 
-
+     
     }
+
+    void Start() {
+        print("Starting " + Time.time);
+        StartCoroutine(WaitAndPrint(20.0F));
+        print("Before WaitAndPrint Finishes " + Time.time);
+    }
+    IEnumerator WaitAndPrint(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        partciler.SetActive (true);
+    }
+
 }
